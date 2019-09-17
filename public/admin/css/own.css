@@ -79,3 +79,30 @@
 .alert a{
 	text-decoration: none;
 }
+.contenidos{
+	display:inline-block;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+.img_contenedor{
+	overflow: hidden;
+	border-radius: 50%;
+	width: 150px;
+	height: 150px;
+	margin-top: 5px;
+}
+.img_contenedor img{
+	width: 150px;
+	height: 150px;
+}
+.img_contenedor_sm{
+	overflow: hidden;
+	width: 65px;
+	height: 65px;
+	position: absolute;
+}
+.img_contenedor_sm img{
+	width: 65px;
+	height: 65px;
+}

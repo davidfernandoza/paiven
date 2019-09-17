@@ -55,6 +55,7 @@ class UserRequest extends FormRequest
 			'name.required' => '¡El nombre del usuario es requerido!',
 			'name.min' => '¡El nombre del usuario debe de ser mas largo!',
 			'name.max' => '¡El nombre del usuario debe de ser mas corto!',
+			'name.string' => '¡El nombre del usuario debe de ser valido!',
 
 			'email.required' => '¡El email del usuario es requerido!',
 			'email.email' => '¡El email del usuario debe de ser valido!',
@@ -69,6 +70,7 @@ class UserRequest extends FormRequest
 
 			'rol.required'=>'¡El rol del usuario es requerido!',
 			'rol.in'=> '¡El rol del usuario solo admite ADMIN o BASIC!',
+			'rol.string' => '¡El rol del usuario debe de ser valido!',
 
 			'id.required' => '¡El identificador del usuario es requerido!',
 			'id.max' => '¡El identificador del usuario debe de ser mas corto!',

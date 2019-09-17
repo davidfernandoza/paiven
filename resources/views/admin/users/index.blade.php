@@ -12,9 +12,18 @@
 
 					<div class="widget-user-header bg-default box-header with-border">
 
-						<div class="widget-user-image">
+						{{-- <div class="widget-user-image">
 							<img class="img-circle" src="{{asset($value->avatar)}}" alt="Avatar-{{$value->name}}">
-						</div>
+						</div> --}}
+
+
+						<div class="widget-user-image" >
+
+								<div class="img_contenedor_sm">
+									<img class="img-circle" src="{{asset($value->avatar)}}" alt="Avatar-{{$value->name}}" >
+								</div>
+							</div>
+
 
 						<div class="box-tools pull-right">
 							<button type="button" class="btn btn-sm btn-{{$value->status == 0 ? 'default' : 'primary'}}" data-widget="collapse"><i class="fa fa-plus"></i>

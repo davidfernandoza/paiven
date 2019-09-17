@@ -53,12 +53,16 @@ class CountryRequest extends FormRequest
 			'name.min' => '¡El nombre del pais debe de ser mas largo!',
 			'name.max' => '¡El nombre del pais debe de ser mas corto!',
 			'name.string'=> '¡El nombre del pais debe de ser valido!',
+
 			'coin.required' => '¡La moneda del pais es requerida!',
 			'coin.min' => '¡La moneda del pais debe de ser mas larga!',
 			'coin.max' => '¡La moneda del pais debe de ser mas corta!',
-			'name.string'=> '¡La moneda del pais debe de ser valida!',
+			'coin.string' => '¡La moneda del pais debe de ser valida!',
+			'coin.string'=> '¡La moneda del pais debe de ser valida!',
+
 			'value.required' => '¡El valor del TRM es requerido!',
 			'value.numeric' => '¡El valor del TRM debe de ser numerico!',
+
 			'id.required' => '¡El identificador del pais es requerido!',
 			'id.max' => '¡El identificador del pais debe de ser mas corto!',
 			'id.exists' => '¡El pais no existe!',

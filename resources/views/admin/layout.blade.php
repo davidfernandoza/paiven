@@ -180,6 +180,8 @@
 	<script src="{{asset('/admin/plugins/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 	{{-- AdminLTE App --}}
 	<script src="{{asset('/admin/js/adminlte.min.js')}}"></script>
+	{{-- Image Upload --}}
+	<script src="{{asset('/admin/js/imgUpload.js')}}"></script>
 
 </body>
 </html>

@@ -2,7 +2,6 @@
 
 @section('content')
 
-	@include('admin.templates.alert')
 	<div class="row galeria">
 
 		@foreach($data as $value)

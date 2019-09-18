@@ -152,7 +152,7 @@
 
 			{{-- Main content --}}
 			<section class="content container-fluid">
-
+				@include('templates.alert')
 				@yield('content')
 
 			</section>

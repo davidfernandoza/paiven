@@ -2,8 +2,6 @@
 
 @section('content')
 
-	@include('admin.templates.alert')
-
 	<div class="row">
 
 		<div class="col-md-4">

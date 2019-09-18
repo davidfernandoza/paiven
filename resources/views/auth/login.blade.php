@@ -1,4 +1,4 @@
-@extends('auth.templates.layout')
+@extends('templates.loginLayout')
 
 @section('content')
 
@@ -7,14 +7,12 @@
 
 			<div class="form-group @error('email') has-error  @enderror">
 				<input type="email" id="email" class="form-control " placeholder="Email" value="{{ old('email') }}" required autofocus name="email" spellcheck="false">
-				<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 				@error('email')	<span class="help-block" role="alert">{{ $message }}</span>@enderror
 			</div>
 
 
 			<div class="form-group @error('email') has-error  @enderror">
 				<input  id="password" type="password" class="form-control @error('email') has-warning @enderror" placeholder="Password" name="password" required value="{{old('password')}}" min="8" max="64">
-				<span class="glyphicon glyphicon-lock form-control-feedback"></span>
 				@error('email')<span class="help-block" role="alert">{{ $message }}</span>@enderror
 			</div>
 			<br>

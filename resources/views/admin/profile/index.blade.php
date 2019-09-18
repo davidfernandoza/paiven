@@ -2,8 +2,6 @@
 
 @section('content')
 
-	@include('admin.templates.alert')
-
 	<div class="row">
 		<div class="col-xs-12">
 			<div class="box box-header">
@@ -15,15 +13,15 @@
 							{{-- Avatar --}}
 							<div class="col-xs-12 col-md-4">
 								<label class="control-label" for="inputError"></i>Avatar:</label><small> fotos cuadradas (Ej: 10 x 10)</small>
-								<div class="thumbnail" >
+								<div class="thumbnail @error('avatar') has-error	@enderror" >
 									<div class="contenidos">
 										<div class="img_contenedor">
 											<img class="img-circle" src="{{asset(Auth::user()->avatar)}}" alt="avatar" width='150' id="img_avatar" >
 										</div>
 									</div>
 									<input type="file" name="avatar" id="input_avatar">
+									@error('avatar')<span class="help-block" role="alert">{{ $message }}</span>	@enderror
 								</div>
-								@error('avatar')<span class="help-block" role="alert">{{ $message }}</span>	@enderror
 							</div>
 							<div class="col-xs-12 col-md-8">
 								@csrf

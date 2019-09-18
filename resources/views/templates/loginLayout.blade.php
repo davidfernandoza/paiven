@@ -38,6 +38,7 @@
   <div class="login-logo">
     <a href="../../index2.html"><b>Paiven |</b> {{$title}}</a>
   </div>
+	@include('templates.alert')
 	<div class="login-box-body">
 	<br>
   	@yield('content')

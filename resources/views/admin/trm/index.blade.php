@@ -2,7 +2,6 @@
 
 @section('content')
 
-	@include('admin.templates.alert')
 	<form action="/control/trm/editar" method="POST" autocomplete="off">
 		@csrf
 		@method('PUT')

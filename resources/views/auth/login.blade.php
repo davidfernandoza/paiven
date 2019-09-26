@@ -20,7 +20,7 @@
 			<div class="row">
 				<div class="col-xs-6">
 					<div class="checkbox icheck">
-						<label>
+						<label id="check" style="display:none">
 						<input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}> ¡Recuérdame!
 						</label>
 					</div>

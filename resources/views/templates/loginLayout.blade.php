@@ -7,22 +7,22 @@
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
 	{{-- Bootstrap --}}
-	<link rel="stylesheet" href="{{asset('/admin/plugins/bootstrap/dist/css/bootstrap.min.css')}}">
+	<link rel="stylesheet" href="{{asset('plugins/bootstrap/css/bootstrap.min.css')}}">
 
 	{{-- Font Awesome --}}
-	<link rel="stylesheet" href="{{asset('/admin/plugins/font-awesome/css/font-awesome.min.css')}}">
+	<link rel="stylesheet" href="{{asset('plugins/font-awesome/css/font-awesome.min.css')}}">
 
 	{{-- Ionicons --}}
-	<link rel="stylesheet" href="{{asset('/admin/plugins/Ionicons/css/ionicons.min.css')}}">
+	<link rel="stylesheet" href="{{asset('plugins/Ionicons/css/ionicons.min.css')}}">
 
 	{{-- Theme style --}}
 	<link rel="stylesheet" href="{{asset('/admin/css/AdminLTE.min.css')}}">
 
 	{{-- Skins --}}
-	<link rel="stylesheet" href="{{asset('/admin/css/skins/skin-green.min.css')}}">
+	<link rel="stylesheet" href="{{asset('/admin/css/skins/skin-black.min.css')}}">
 
 	{{-- iCheck --}}
-  <link rel="stylesheet" href="{{asset('/admin/plugins/iCheck/square/blue.css')}}">
+  <link rel="stylesheet" href="{{asset('plugins/iCheck/square/blue.css')}}">
 
 	{{-- Owns --}}
 	<link rel="stylesheet" href="{{asset('/admin/css/own.css')}}">
@@ -47,24 +47,24 @@
 <!-- /.login-box -->
 
 {{-- jQuery 3 --}}
-<script src="{{asset('/admin/plugins/jquery/dist/jquery.min.js')}}"></script>
+<script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
 
 {{-- Bootstrap 3.3.7 --}}
-<script src="{{asset('/admin/plugins/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
 {{-- AdminLTE App --}}
 <script src="{{asset('/admin/js/adminlte.min.js')}}"></script>
 
 <!-- iCheck -->
-<script src="{{asset('/admin/plugins/iCheck/icheck.min.js')}}"></script>
-
+<script src="{{asset('plugins/iCheck/icheck.min.js')}}"></script>
 <script>
   $(function () {
-    $('input').iCheck({
+    $('#remember').iCheck({
       checkboxClass: 'icheckbox_square-blue',
       radioClass: 'iradio_square-blue',
       increaseArea: '20%' /* optional */
     });
+		$('#check').css('display','')
   });
 </script>
 </body>

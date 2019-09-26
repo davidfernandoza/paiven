@@ -6,13 +6,13 @@
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
 	{{-- Bootstrap --}}
-	<link rel="stylesheet" href="{{asset('/admin/plugins/bootstrap/dist/css/bootstrap.min.css')}}">
+	<link rel="stylesheet" href="{{asset('plugins/bootstrap/css/bootstrap.min.css')}}">
 
 	{{-- Font Awesome --}}
-	<link rel="stylesheet" href="{{asset('/admin/plugins/font-awesome/css/font-awesome.min.css')}}">
+	<link rel="stylesheet" href="{{asset('plugins/font-awesome/css/font-awesome.min.css')}}">
 
 	{{-- Ionicons --}}
-	<link rel="stylesheet" href="{{asset('/admin/plugins/Ionicons/css/ionicons.min.css')}}">
+	<link rel="stylesheet" href="{{asset('plugins/Ionicons/css/ionicons.min.css')}}">
 
 	{{-- Theme style --}}
 	<link rel="stylesheet" href="{{asset('/admin/css/AdminLTE.min.css')}}">
@@ -113,27 +113,27 @@
 
 					@if ( Auth::user()->rol == 'ADMIN')
 
-					<li class="{{$title == 'Paises' ? 'active' :''}}">
-						<a href="/control/paises"><i class="fa fa-flag-o"></i> <span>Paises</span></a>
-					</li>
+						<li class="{{$title == 'Paises' ? 'active' :''}}">
+							<a href="/control/paises"><i class="fa fa-flag-o"></i> <span>Paises</span></a>
+						</li>
 
-					<li class="{{$title == 'Usuarios' || $title == 'Crear Usuarios' ? 'active' :''}} treeview menu-close" style="height: auto;">
-						<a href="#">
-							<i class="fa fa-users"></i> <span>Usuarios</span>
-							<span class="pull-right-container">
-								<i class="fa fa-angle-left pull-right"></i>
-							</span>
-						</a>
-						<ul class="treeview-menu" style="">
-							<li class="{{$title == 'Usuarios' ? 'active' :''}}">
-								<a href="/control/usuarios"><i class="fa fa-list"></i>Listar</a>
-							</li>
-							<li class="{{$title == 'Crear Usuarios' ? 'active' :''}}">
-								<a href="/control/usuarios/crear"><i class="fa fa-plus"></i>Crear</a>
-							</li>
-						</ul>
-					</li>
-				@endif
+						<li class="{{$title == 'Usuarios' || $title == 'Crear Usuarios' ? 'active' :''}} treeview menu-close" style="height: auto;">
+							<a href="#">
+								<i class="fa fa-users"></i> <span>Usuarios</span>
+								<span class="pull-right-container">
+									<i class="fa fa-angle-left pull-right"></i>
+								</span>
+							</a>
+							<ul class="treeview-menu" style="">
+								<li class="{{$title == 'Usuarios' ? 'active' :''}}">
+									<a href="/control/usuarios"><i class="fa fa-list"></i>Listar</a>
+								</li>
+								<li class="{{$title == 'Crear Usuarios' ? 'active' :''}}">
+									<a href="/control/usuarios/crear"><i class="fa fa-plus"></i>Crear</a>
+								</li>
+							</ul>
+						</li>
+					@endif
 
 				</ul>
 				{{-- /.sidebar-menu --}}
@@ -175,11 +175,14 @@
 	{{-- REQUIRED JS SCRIPTS --}}
 
 	{{-- jQuery 3 --}}
-	<script src="{{asset('/admin/plugins/jquery/dist/jquery.min.js')}}"></script>
+	<script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
+
 	{{-- Bootstrap 3.3.7 --}}
-	<script src="{{asset('/admin/plugins/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+	<script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+
 	{{-- AdminLTE App --}}
 	<script src="{{asset('/admin/js/adminlte.min.js')}}"></script>
+
 	{{-- Image Upload --}}
 	<script src="{{asset('/admin/js/imgUpload.js')}}"></script>
 

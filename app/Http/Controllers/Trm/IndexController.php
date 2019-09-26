@@ -1,11 +1,12 @@
 <?php namespace App\Http\Controllers\Trm;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 
 class IndexController extends BaseController
 {
-	public function index()
+	public function index(Request $request)
 	{
 		$data = DB::table('trm')
 		->join('countries', 'trm.country_id', '=', 'countries.id')
@@ -26,7 +27,11 @@ class IndexController extends BaseController
 			->groupBy('countries.id')
 			->orderBy('countries.name')
 			->get();
-
-			return view('admin.trm.index')->with('data', $data)->with('title', 'TRM');
+			if ($request->ajax()) {
+				return response()->json($data);
+			}
+			else {
+				return view('admin.trm.index')->with('data', $data)->with('title', 'TRM');
+			}
 		}
 	}

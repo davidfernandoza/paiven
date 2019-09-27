@@ -124,7 +124,7 @@ function main () {
 					// Cambio de valor en el DOM:
 					function getChangeTRM(value) {
 						let numberOrigin = format.originNumber(value)
-						let valueEnd = format.newNumber(Number(numberOrigin / trm).toFixed(2))
+						let valueEnd = format.newNumber(Number(numberOrigin / trm).toFixed(0))
 						let numFrom = format.newNumber(numberOrigin)
 						$('#to').val(valueEnd)
 						$('#from').val(numFrom)

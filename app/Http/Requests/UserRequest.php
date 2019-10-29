@@ -32,7 +32,9 @@ class UserRequest extends FormRequest
 				'name' =>  	'required|string|min:3|max:45',
 				'email' => 	'required|min:8|max:150|email|unique:users,email,'.$this->id,
 				'phone' => 	'required|min:10000|max:999999999999|numeric',
-				'rol' => 		'required|string|in:ADMIN,BASIC'
+				'rol' => 		'required|string|in:ADMIN,BASIC',
+				'country' => 'required|numeric|exists:countries,id',
+				'visible' => 'required|in:1,0'
 			];
 		}
 
@@ -42,7 +44,9 @@ class UserRequest extends FormRequest
 				'name' =>  	'required|string|min:3|max:45',
 				'email' => 	'required|min:8|max:150|email|unique:users,email',
 				'phone' => 	'required|min:10000|max:999999999999|numeric',
-				'rol' => 		'required|string|in:ADMIN,BASIC'
+				'rol' => 		'required|string|in:ADMIN,BASIC',
+				'country' => 'required|numeric|exists:countries,id',
+				'visible' => 'required|in:1,0'
 			];
 		}
 		return $rules;
@@ -75,6 +79,13 @@ class UserRequest extends FormRequest
 			'id.required' => '¡El identificador del usuario es requerido!',
 			'id.max' => '¡El identificador del usuario debe de ser mas corto!',
 			'id.exists' => '¡El usuario no existe!',
+
+			'country.required' => '¡La residencia del usuario es requerida!',
+			'country.numeric' => '¡La residencia del usuario debe de ser numerica!',
+			'country,exists' => '¡La residencia no existe!',
+
+			'visible.required' => '¡La visibilidad del usuario es requerida!',
+			'visible.in' => '¡La visibilidad del usuario solo admite SI o NO!'
 		];
 	}
 }

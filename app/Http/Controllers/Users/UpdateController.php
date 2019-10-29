@@ -14,10 +14,12 @@ class UpdateController extends BaseController
 
 		$user = User::findOrFail($request->id);
 
-		$user->name = 		trim(Str::title($request->get('name')));
-		$user->email = 		trim(Str::lower($request->get('email')));
-		$user->phone = 		trim($request->get('phone'));
-		$user->rol = 			trim(Str::upper($request->get('rol')));
+		$user->name = 				trim(Str::title($request->get('name')));
+		$user->email = 				trim(Str::lower($request->get('email')));
+		$user->phone = 				trim($request->get('phone'));
+		$user->country_id = 	trim($request->get('country'));
+		$user->visible = 			(int)trim($request->get('visible'));
+		$user->rol = 					trim(Str::upper($request->get('rol')));
 
 		if ($user->update()) {
 			return 	Redirect('control/usuarios')

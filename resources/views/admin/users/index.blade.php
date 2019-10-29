@@ -11,11 +11,6 @@
 
 					<div class="widget-user-header bg-default box-header with-border">
 
-						{{-- <div class="widget-user-image">
-							<img class="img-circle" src="{{asset($value->avatar)}}" alt="Avatar-{{$value->name}}">
-						</div> --}}
-
-
 						<div class="widget-user-image" >
 
 								<div class="img_contenedor_sm">
@@ -30,9 +25,10 @@
 						</div>
 
 						<!-- /.widget-user-image -->
-						<h3 class="widget-user-username">{{$value->name}}</h3>
+						<h3 class="widget-user-username">{{$value->name}}
+							<img src="{{asset($value->flag)}}" alt="pais" width="25">
+						</h3>
 						<h5 class="widget-user-desc">{{$value->rol}}</h5>
-
 					</div>
 
 					<!-- /.box-header -->
@@ -58,10 +54,19 @@
 								<div class="form-group">
 									<label for="inputEmail3" class="col-sm-3 control-label">Telefono:</label>
 									<div class="col-sm-12">
-										<input type="number" class="form-control" max="999999999999" min="100000" placeholder="3101110000" name="phone" title="Telefono" {{$value->status == 0 ?'disabled':'required'}} value="{{$value->phone}}">
+										<div class="input-group">
+											<span class="input-group-addon" id="basic-addon1">+{{$value->codePrefix}}</span>
+											<input type="number" class="form-control" max="999999999999" min="100000" placeholder="3101110000" name="phone" title="Telefono" {{$value->status == 0 ?'disabled':'required'}} value="{{$value->phone}}" aria-describedby="basic-addon1">
+											<a  class="input-group-addon" id="basic-addon1" href="https://wa.me/573147754648" target="_blank">
+													<i class="fa fa-whatsapp"></i>
+											</a>
+										</div>
+
+
 									</div>
 								</div>
 
+								{{-- rol --}}
 								<div class="form-group">
 									<label for="inputEmail3" class="col-sm-3 control-label">Rol:</label>
 									<div class="col-sm-12">
@@ -72,13 +77,26 @@
 									</div>
 								</div>
 
+								{{-- countries --}}
+								<div class="form-group">
+									<label for="inputEmail3" class="col-sm-3 control-label">Residencia:</label>
+									<div class="col-sm-12">
+										<select class="form-control" name="country" title="Residencia" {{$value->status == 0 ?'disabled':'required'}}>
+											@foreach ($country as $valueCountry)
+												<option value="{{$valueCountry->id}}"
+													{{$valueCountry->id == $value->country_id ? 'selected' : ''}}>{{$valueCountry->name}}</option>
+											@endforeach
+										</select>
+									</div>
+								</div>
+
 								{{-- visible --}}
 								<div class="form-group">
 									<label for="inputEmail3" class="col-sm-3 control-label">Visible:</label>
 									<div class="col-sm-12">
 										<select class="form-control" name="visible" title="Visible" {{$value->status == 0 ?'disabled':'required'}}>
-											<option value="SI" {{$value->visible = 'TRUE' ? 'selected' : ''}}>SI</option>
-											<option value="NO" {{$value->visible == 'FALSE' ? 'selected' : ''}}>NO</option>
+											<option value="1" {{$value->visible = 1 ? 'selected' : ''}}>SI</option>
+											<option value="0" {{$value->visible == 0 ? 'selected' : ''}}>NO</option>
 										</select>
 									</div>
 								</div>

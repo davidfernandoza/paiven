@@ -16,10 +16,12 @@ class CreateController extends BaseController
 	public function index(UserRequest $request){
 		$password = Str::random(8);
 		$user = new User;
-		$user->name = 		trim(Str::title($request->get('name')));
-		$user->email = 		trim(Str::lower($request->get('email')));
-		$user->phone = 		trim($request->get('phone'));
-		$user->rol = 			trim(Str::upper($request->get('rol')));
+		$user->name = 			trim(Str::title($request->get('name')));
+		$user->email = 			trim(Str::lower($request->get('email')));
+		$user->phone = 			trim($request->get('phone'));
+		$user->rol = 				trim(Str::upper($request->get('rol')));
+		$user->country_id = trim($request->get('country'));
+		$user->visible = 		(int)trim($request->get('visible'));
 		$user->password = Hash::make($password);
 
 		if ($user->save()) {

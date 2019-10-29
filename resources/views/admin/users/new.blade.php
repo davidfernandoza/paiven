@@ -38,6 +38,19 @@
 								<option {{old('rol') == 'ADMIN' ? 'selected' : ''}} value="ADMIN">ADMIN</option>
 								<option {{old('rol') == 'BASIC' ? 'selected' : ''}} value="BASIC">BASIC</option>
 							</select>
+							@error('rol')<span class="help-block" role="alert"> {{ $message }}	</span>	@enderror
+						</div>
+
+						{{-- Countries --}}
+						<div class="form-group @error ('country') has-error	@enderror" >
+							<label>Residencia:</label>
+							<select name="country" class="form-control " style="width: 100%;" required>
+								<option {{!isset($errors) ? '' : 'selected'}} value="0" disabled>SELECCIONAR</option>
+								@foreach ($countries as $value)
+									<option {{old('country') == $value->id ? 'selected' : ''}} value="{{$value->id}}">{{$value->name}}</option>
+								@endforeach
+							</select>
+							@error('country')<span class="help-block" role="alert"> {{ $message }}	</span>	@enderror
 						</div>
 
 						{{-- visible --}}
@@ -45,9 +58,10 @@
 							<label>Visible:</label>
 							<select name="visible" class="form-control " style="width: 100%;" required>
 								<option {{!isset($errors) ? '' : 'selected'}} value="0" disabled>SELECCIONAR</option>
-								<option {{old('visible') == 'TRUE' ? 'selected' : ''}} value="TRUE">SI</option>
-								<option {{old('visible') == 'FALSE' ? 'selected' : ''}} value="FALSE">NO</option>
+								<option {{old('visible') == 1 ? 'selected' : ''}} value="1">SI</option>
+								<option {{old('visible') == 0 ? 'selected' : ''}} value="0">NO</option>
 							</select>
+							@error('visible')<span class="help-block" role="alert"> {{ $message }}	</span>	@enderror
 						</div>
 
 						{{-- Botones  --}}

@@ -30,6 +30,7 @@ class IndexController extends BaseController
 		)
 		->orderBy('users.name')
 		->get();
+		// dd($data);
 		$country = Country::all()->sortBy('name')->where('status', true);
 		return view('admin.users.index')
 		->with('title', 'Usuarios')
@@ -54,7 +55,8 @@ class IndexController extends BaseController
 			'countries.flag',
 			'countries.codePrefix'
 		)
-		->where('users.visible', true)
+		->where('users.visible', 1)
+		->where('users.status', 1)
 		->get();
 		if ($request->ajax()) {
 			return response()->json($data);

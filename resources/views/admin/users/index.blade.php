@@ -95,7 +95,7 @@
 									<label for="inputEmail3" class="col-sm-3 control-label">Visible:</label>
 									<div class="col-sm-12">
 										<select class="form-control" name="visible" title="Visible" {{$value->status == 0 ?'disabled':'required'}}>
-											<option value="1" {{$value->visible = 1 ? 'selected' : ''}}>SI</option>
+											<option value="1" {{$value->visible == 1 ? 'selected' : ''}}>SI</option>
 											<option value="0" {{$value->visible == 0 ? 'selected' : ''}}>NO</option>
 										</select>
 									</div>

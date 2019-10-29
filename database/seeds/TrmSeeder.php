@@ -11,6 +11,6 @@ class TrmSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Models\Trm::class, 20)->create();
+        factory(App\Models\Trm::class, 50)->create();
     }
 }

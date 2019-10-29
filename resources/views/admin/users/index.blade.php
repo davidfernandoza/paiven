@@ -72,6 +72,18 @@
 									</div>
 								</div>
 
+								{{-- visible --}}
+								<div class="form-group">
+									<label for="inputEmail3" class="col-sm-3 control-label">Visible:</label>
+									<div class="col-sm-12">
+										<select class="form-control" name="visible" title="Visible" {{$value->status == 0 ?'disabled':'required'}}>
+											<option value="SI" {{$value->visible = 'TRUE' ? 'selected' : ''}}>SI</option>
+											<option value="NO" {{$value->visible == 'FALSE' ? 'selected' : ''}}>NO</option>
+										</select>
+									</div>
+								</div>
+
+
 							</div>
 							<br>
 							<div class="box-footer">

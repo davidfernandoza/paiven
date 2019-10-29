@@ -4,14 +4,14 @@ namespace App\Http\Controllers\Countries;
 use Illuminate\Http\RedirectResponse as Redirect;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\DB;
-use App\Http\Requests\CountryRequest;
+use App\Http\Requests\CountryCreateRequest;
 use App\Models\Country;
 use App\Models\Trm;
 use Illuminate\Support\Str;
 
 class CreateController extends BaseController
 {
-	public function index(CountryRequest $request){
+	public function index(CountryCreateRequest $request){
 
 		DB::beginTransaction();
 		$status = false;
@@ -20,6 +20,7 @@ class CreateController extends BaseController
 
 		$country->name = trim(Str::title($request->get('name')));
 		$country->coin = trim(Str::upper($request->get('coin')));
+		$country->codePrefix = trim($request->get('codePrefix'));
 
 		if (file_exists(public_path().'/images/flags/'.$country->name.'.svg')) {
 			$country->flag = 'images/flags/'.$country->name.'.svg';

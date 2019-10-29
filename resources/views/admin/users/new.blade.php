@@ -40,6 +40,16 @@
 							</select>
 						</div>
 
+						{{-- visible --}}
+						<div class="form-group @error ('visible') has-error	@enderror" >
+							<label>Visible:</label>
+							<select name="visible" class="form-control " style="width: 100%;" required>
+								<option {{!isset($errors) ? '' : 'selected'}} value="0" disabled>SELECCIONAR</option>
+								<option {{old('visible') == 'TRUE' ? 'selected' : ''}} value="TRUE">SI</option>
+								<option {{old('visible') == 'FALSE' ? 'selected' : ''}} value="FALSE">NO</option>
+							</select>
+						</div>
+
 						{{-- Botones  --}}
 						<div class="form-group">
 							<div class="row">

@@ -13,12 +13,14 @@ class User extends Authenticatable
     protected $primaryKey = 'id';
     protected $fillable = [
         'id',
+				'country_id',
         'name',
         'email',
         'phone',
         'rol',
         'avatar',
         'status',
+				'visible',
         'remember_token',
         'created_at',
         'updated_at'
@@ -33,5 +35,9 @@ class User extends Authenticatable
         'password',
 				'email_password'
     ];
+
+		public function country(){
+				return $this->belongsTo(Country::class, 'country_id');
+		}
 
 }

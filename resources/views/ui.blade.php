@@ -15,11 +15,13 @@
 	<!-- Custom fonts for this template -->
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:500,700&display=swap" rel="stylesheet">
 
 	<link href="{{asset('plugins/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
 
 	<!-- Custom styles for this template -->
 	<link href="{{asset('css/coming-soon.css')}}" rel="stylesheet">
+	<link rel="shortcut icon" href="{{asset('images/paiven_logo.png')}}">
 </head>
 
 <body>
@@ -35,7 +37,7 @@
 				<div class="row h-100">
 					<div class="col-12 my-auto">
 						<div class="masthead-content text-white py-5 py-md-0">
-							<h1 class="mb-3">Paiven</h1>
+							<h1 class="mb-3"><img src="{{asset('images/paiven_logo.png')}}" alt="logo" width="150">Paiven</h1>
 							<p class="mb-5">Consulta el valor de cambio más barato de internet para el envió de divisas a <strong>Venezuela.</strong>
 							</p>
 							<div id="rate">
@@ -92,7 +94,7 @@
 							<label>El destinatario recibe en Venezuela</label>
 							<div class="input-group input-group-newsletter">
 								<input 	type="text"
-												class="form-control"
+												class="form-control bns"
 												title="Cantidad que recibe el destinatario"
 												aria-label="Cantidad..."
 												aria-describedby="basic-addon"
@@ -100,7 +102,7 @@
 												readonly
 												id="to">
 								<div class="input-group-append btd">
-									<button class="btn btn-secondary btnVen">
+									<button class="btn btn-secondary btnVen bns">
 										<span>BsS</span>
 										<img 	src="{{asset('images/flags/Venezuela.svg')}}"
 													alt="bandera"
@@ -118,19 +120,39 @@
 
 		<div class="social-icons">
 			<ul class="list-unstyled text-center mb-0">
+				<h2>Contáctanos y envía plata</h2>
+				<br>
 				<li class="list-unstyled-item">
-					<a href="#">
-						<i class="fab fa-twitter"></i>
+					<div class="numero">
+						<img src="{{asset('images/flags/Colombia.svg')}}" alt="Colombia" width="50">
+					</div>
+					<div class="numero">
+						<a href="https://wa.me/573147754648" target="_blank">314 775 4648</a>
+					</div>
+					<a class="icono" href="https://wa.me/573147754648" target="_blank">
+						<i class="fab fa-whatsapp"></i>
 					</a>
 				</li>
 				<li class="list-unstyled-item">
-					<a href="#">
-						<i class="fab fa-facebook-f"></i>
+					<div class="numero">
+						<img src="{{asset('images/flags/Peru.svg')}}" alt="Colombia" width="50">
+					</div>
+					<div class="numero">
+						<a href="https://wa.me/573147754648" target="_blank">314 775 4648</a>
+					</div>
+					<a class="icono" href="https://wa.me/573147754648" target="_blank">
+						<i class="fab fa-whatsapp"></i>
 					</a>
 				</li>
 				<li class="list-unstyled-item">
-					<a href="#">
-						<i class="fab fa-instagram"></i>
+					<div class="numero">
+						<img src="{{asset('images/flags/Panama.svg')}}" alt="Colombia" width="50">
+					</div>
+					<div class="numero">
+						<a href="https://wa.me/573147754648" target="_blank">314 775 4648</a>
+					</div>
+					<a class="icono" href="https://wa.me/573147754648" target="_blank">
+						<i class="fab fa-whatsapp"></i>
 					</a>
 				</li>
 			</ul>

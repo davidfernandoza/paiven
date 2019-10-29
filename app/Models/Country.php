@@ -11,6 +11,7 @@ class Country extends Model
     protected $fillable = [
         'id',
         'name',
+				'codePrefix',
         'coin',
         'status',
 				'flag',

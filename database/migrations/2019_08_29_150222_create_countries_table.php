@@ -17,8 +17,7 @@ class CreateCountriesTable extends Migration
             $table->bigIncrements('id');
 						$table->string('name', 45)->unique();
 						$table->char('coin', 4);
-						$table->integer('monthQuery');
-						$table->integer('totalQuery');
+						$table->string('codePrefix', 4)->unique();
 						$table->string('flag', 255)->default('images/flags/Default.svg');
 						$table->boolean('status')->default(1);
             $table->timestamps();

@@ -22,7 +22,7 @@
 	<link rel="stylesheet" href="{{asset('/admin/css/skins/skin-black.min.css')}}">
 
 	{{-- iCheck --}}
-  <link rel="stylesheet" href="{{asset('plugins/iCheck/square/blue.css')}}">
+	<link rel="stylesheet" href="{{asset('plugins/iCheck/square/blue.css')}}">
 
 	{{-- Owns --}}
 	<link rel="stylesheet" href="{{asset('/admin/css/own.css')}}">
@@ -31,41 +31,46 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
 	<title>Paiven Control | {{$title}}</title>
+	<link rel="shortcut icon" href="{{asset('images/paiven_logo.png')}}">
 
 </head>
 <body class="hold-transition login-page">
-<div class="login-box">
-  <div class="login-logo">
-    <a href="../../index2.html"><b>Paiven |</b> {{$title}}</a>
-  </div>
-	@include('templates.alert')
-	<div class="login-box-body">
-	<br>
-  	@yield('content')
-	</div>
-</div>
-<!-- /.login-box -->
+	<div class="login-box center">
+		<div class="login-box">
+			<div class="login-logo">
+				<div>
+					<img src="{{asset('images/paiven_logo.png')}}" alt="logo" width="170">
+				</div>
+				<a href="../../index2.html"><b>Paiven |</b> {{$title}}</a>
+			</div>
+			@include('templates.alert')
+			<div class="login-box-body">
+				<br>
+				@yield('content')
+			</div>
+		</div>
+		<!-- /.login-box -->
 
-{{-- jQuery 3 --}}
-<script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
+		{{-- jQuery 3 --}}
+		<script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
 
-{{-- Bootstrap 3.3.7 --}}
-<script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+		{{-- Bootstrap 3.3.7 --}}
+		<script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
-{{-- AdminLTE App --}}
-<script src="{{asset('/admin/js/adminlte.min.js')}}"></script>
+		{{-- AdminLTE App --}}
+		<script src="{{asset('/admin/js/adminlte.min.js')}}"></script>
 
-<!-- iCheck -->
-<script src="{{asset('plugins/iCheck/icheck.min.js')}}"></script>
-<script>
-  $(function () {
-    $('#remember').iCheck({
-      checkboxClass: 'icheckbox_square-blue',
-      radioClass: 'iradio_square-blue',
-      increaseArea: '20%' /* optional */
-    });
-		$('#check').css('display','')
-  });
-</script>
+		<!-- iCheck -->
+		<script src="{{asset('plugins/iCheck/icheck.min.js')}}"></script>
+		<script>
+		$(function () {
+			$('#remember').iCheck({
+				checkboxClass: 'icheckbox_square-blue',
+				radioClass: 'iradio_square-blue',
+				increaseArea: '20%' /* optional */
+			});
+			$('#check').css('display','')
+		});
+	</script>
 </body>
 </html>

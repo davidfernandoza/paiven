@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CountryRequest extends FormRequest
+class CountryCreateRequest extends FormRequest
 {
 
 	public function authorize()
@@ -15,34 +15,12 @@ class CountryRequest extends FormRequest
 
 	public function rules()
 	{
-		$rules=[];
-
-		// Eliminar o Activar
-		if ($this->_method == "DELETE" ){
-			$rules = [
-				'id' =>       'required|numeric|max:10|exists:countries'
-			];
-		}
-
-		// Editar
-		else if ($this->_method == "PUT" ){
-
-			$rules =[
-				'id' =>   'required|numeric|max:10|exists:countries',
-				'name' => 'required|string|min:3|max:45|unique:countries,name,'.$this->id,
-				'coin' => 'required|string|min:2|max:4'
-			];
-		}
-
-		// Crear
-		else{
-			$rules = [
-				'name' => 'required|string|min:3|max:45|unique:countries,name',
-				'coin' => 'required|string|min:2|max:4',
-				'value' => 'required|numeric'
-			];
-		}
-		return $rules;
+		return [
+			'name' => 'required|string|min:3|max:45|unique:countries,name',
+			'coin' => 'required|string|min:2|max:4',
+			'codePrefix' => 'required|numeric|min:1|max:999|unique:countries,codePrefix,'.$this->id,
+			'value' => 'required|numeric'
+		];
 	}
 
 	public function messages()
@@ -59,6 +37,12 @@ class CountryRequest extends FormRequest
 			'coin.max' => '¡La moneda del pais debe de ser mas corta!',
 			'coin.string' => '¡La moneda del pais debe de ser valida!',
 			'coin.string'=> '¡La moneda del pais debe de ser valida!',
+
+			'codePrefix.required' => '¡El codigo del pais es requerido!',
+			'codePrefix.unique' => '¡El codigo del pais ya se esta usando!',
+			'codePrefix.numeric' => '¡El codigo del pais debe de ser numerico!',
+			'codePrefix.min' => '¡El codigo del pais debe de ser mas largo!',
+			'codePrefix.max' => '¡El codigo del pais debe de ser mas corto!',
 
 			'value.required' => '¡El valor del TRM es requerido!',
 			'value.numeric' => '¡El valor del TRM debe de ser numerico!',

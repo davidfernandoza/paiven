@@ -20,7 +20,7 @@ class UserRequest extends FormRequest
 		// Eliminar o Activar
 		if ($this->_method == "DELETE" ){
 			$rules = [
-				'id' =>       'required|numeric|max:10|exists:users'
+				'id' =>       'required|numeric|max:32767|exists:users'
 			];
 		}
 
@@ -28,7 +28,7 @@ class UserRequest extends FormRequest
 		else if ($this->_method == "PUT" ){
 
 			$rules =[
-				'id' =>   	'required|numeric|max:10|exists:users',
+				'id' =>   	'required|numeric|max:32767|exists:users',
 				'name' =>  	'required|string|min:3|max:45',
 				'email' => 	'required|min:8|max:150|email|unique:users,email,'.$this->id,
 				'phone' => 	'required|min:10000|max:999999999999|numeric',

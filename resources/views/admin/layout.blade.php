@@ -27,7 +27,7 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
 	<title>Paiven Control | {{$title}}</title>
-
+	<link rel="shortcut icon" href="{{asset('images/paiven_logo.png')}}">
 </head>
 <body class="hold-transition skin-black sidebar-mini">
 	<div class="wrapper">
@@ -38,9 +38,9 @@
 			{{-- Logo --}}
 			<a href="/control/trm" class="logo">
 				{{-- mini logo for sidebar mini 50x50 pixels --}}
-				<span class="logo-mini"><b>PVN</b></span>
+				<span class="logo-mini"><img src="{{asset('images/paiven_logo.png')}}" alt="logo"></span>
 				{{-- logo for regular state and mobile devices --}}
-				<span class="logo-lg"><b>Paiven</b>.com</span>
+				<span class="logo-lg"><img src="{{asset('images/paiven_logo.png')}}" alt="logo"><b>Paiven</b>.com</span>
 			</a>
 
 			{{-- Header Navbar --}}

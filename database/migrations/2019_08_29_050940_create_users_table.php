@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
 			$table->binary('email_password');
 			$table->char('phone', 15);
 			$table->boolean('status')->default(1);
+			$table->boolean('visible')->default(0);
 			$table->enum('rol', ['ADMIN', 'BASIC'])->default('BASIC');
 			$table->string('avatar', 255)->default('images/avatars/default.svg');
 			$table->rememberToken();

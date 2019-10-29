@@ -4,6 +4,7 @@ namespace App\Models;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Notifications\MyResetPassword;
 
 class User extends Authenticatable
 {
@@ -39,5 +40,12 @@ class User extends Authenticatable
 		public function country(){
 				return $this->belongsTo(Country::class, 'country_id');
 		}
+
+		// Enviar notificacion de correo.
+		public function sendPasswordResetNotification($token)
+		{
+		    $this->notify(new MyResetPassword($token));
+		}
+
 
 }

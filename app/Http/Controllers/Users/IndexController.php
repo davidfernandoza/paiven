@@ -2,11 +2,14 @@
 
 use Illuminate\Support\Facades\DB;
 use App\Models\Country;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 
 
 class IndexController extends BaseController
 {
+
+	// Listado de usuarios
 	public function list()
 	{
 		$data = DB::table('users')
@@ -34,9 +37,27 @@ class IndexController extends BaseController
 		->with('country', $country);
 	}
 
+// Listado de paises:
 	public function new()
 	{
 		$data = Country::all()->sortBy('name')->where('status', true);
 		return view('admin.users.new')->with('title', 'Crear Usuarios')->with('countries', $data);
+	}
+
+// consulta publica de usuarios visibles
+	public function visible(Request $request)
+	{
+		$data = DB::table('users')
+		->join('countries', 'users.country_id', '=', 'countries.id')
+		->select(
+			'users.phone',
+			'countries.flag',
+			'countries.codePrefix'
+		)
+		->where('users.visible', true)
+		->get();
+		if ($request->ajax()) {
+			return response()->json($data);
+		}
 	}
 }

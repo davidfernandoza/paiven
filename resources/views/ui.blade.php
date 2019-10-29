@@ -119,42 +119,8 @@
 		</div>
 
 		<div class="social-icons">
-			<ul class="list-unstyled text-center mb-0">
-				<h2>Contáctanos y envía plata</h2>
-				<br>
-				<li class="list-unstyled-item">
-					<div class="numero">
-						<img src="{{asset('images/flags/Colombia.svg')}}" alt="Colombia" width="50">
-					</div>
-					<div class="numero">
-						<a href="https://wa.me/573147754648" target="_blank">314 775 4648</a>
-					</div>
-					<a class="icono" href="https://wa.me/573147754648" target="_blank">
-						<i class="fab fa-whatsapp"></i>
-					</a>
-				</li>
-				<li class="list-unstyled-item">
-					<div class="numero">
-						<img src="{{asset('images/flags/Peru.svg')}}" alt="Colombia" width="50">
-					</div>
-					<div class="numero">
-						<a href="https://wa.me/573147754648" target="_blank">314 775 4648</a>
-					</div>
-					<a class="icono" href="https://wa.me/573147754648" target="_blank">
-						<i class="fab fa-whatsapp"></i>
-					</a>
-				</li>
-				<li class="list-unstyled-item">
-					<div class="numero">
-						<img src="{{asset('images/flags/Panama.svg')}}" alt="Colombia" width="50">
-					</div>
-					<div class="numero">
-						<a href="https://wa.me/573147754648" target="_blank">314 775 4648</a>
-					</div>
-					<a class="icono" href="https://wa.me/573147754648" target="_blank">
-						<i class="fab fa-whatsapp"></i>
-					</a>
-				</li>
+			<ul class="list-unstyled text-center mb-0" id="users">
+
 			</ul>
 		</div>
 
@@ -175,6 +141,8 @@
 		<script src="{{asset('/js/ipCountry.js')}}"></script>
 		{{-- Save localStorage --}}
 		<script src="{{asset('js/localStorage.js')}}"></script>
+		{{-- Users --}}
+		<script src="{{asset('js/users.js')}}"></script>
 		{{-- Main --}}
 		<script src="{{asset('js/main.js')}}"></script>
 

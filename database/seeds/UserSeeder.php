@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
 				'email_password'=> Hash::make('123456789'),
 				'phone' => '3147754648',
 				'rol' => 'ADMIN',
-				'visible'=> 1,
+				'visible'=> 0,
 				'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
 				'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
 			]);
@@ -35,19 +35,6 @@ class UserSeeder extends Seeder
 				'email_password'=> Hash::make('123456789'),
 				'phone' => '3107148905',
 				'rol' => 'ADMIN',
-				'visible'=> 1,
-				'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
-				'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
-			]);
-
-			DB::table('users')->insert([
-				'country_id' => 2,
-				'name' => 'Dario Fernando Gomez Duque',
-				'email' => 'dario@gmail.com',
-				'password' =>  Hash::make('123456789'),
-				'email_password'=> Hash::make('123456789'),
-				'phone' => '3218947836',
-				'rol' => 'BASIC',
 				'visible'=> 0,
 				'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
 				'updated_at' => \Carbon\Carbon::now()->toDateTimeString()

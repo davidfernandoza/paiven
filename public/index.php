@@ -51,6 +51,13 @@ $app = require_once __DIR__.'/../bootstrap/app.php';
 
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 
+// $response = $kernel->handle(
+//     $request = Illuminate\Http\Request::capture()
+// );
+
+/* Se comenta la linea de arriba y se modifica por esta de abajo
+ * para que resiva HTTPS en las rutas de los CSS
+ */
 $response = $kernel->handle(
     $request = App\Http\Request::capture()
 );

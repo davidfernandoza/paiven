@@ -1,7 +1,5 @@
 /node_modules
 /public/hot
-/public/mp4
-/public/images/avatars
 /public/storage
 /storage/*.key
 /vendor

@@ -15,7 +15,7 @@ class CreateTrmTable extends Migration
     {
         Schema::create('trm', function (Blueprint $table) {
             $table->bigIncrements('id');
-						$table->float('value');
+						$table->double('value');
 						$table->boolean('status')->default(1);
             $table->timestamps();
         });

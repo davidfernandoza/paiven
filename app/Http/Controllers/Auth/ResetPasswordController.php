@@ -28,7 +28,7 @@ class ResetPasswordController extends Controller
 		// Validar si el usuario existe o esta activo.
 		protected function credentials(Request $request)
 		{
-			$request['status'] = 1;
+			$request['status'] = true;
 			return $request->only(
 					'email', 'status', 'password', 'password_confirmation', 'token'
 			);

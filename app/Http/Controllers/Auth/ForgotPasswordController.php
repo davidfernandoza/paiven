@@ -23,7 +23,7 @@ class ForgotPasswordController extends Controller
 
 		protected function credentials(Request $request)
     {
-			$request['status'] = 1;
+			$request['status'] = true;
 			return $request->only('email', 'status');
     }
 

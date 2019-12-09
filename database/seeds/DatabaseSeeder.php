@@ -11,11 +11,12 @@ class DatabaseSeeder extends Seeder
 	*/
 	public function run()
 	{
-		$this->truncateTables([
-			'countries',
-			'users',
-			'trm'
-		]);
+		// MYSQL
+		// $this->truncateTables([
+		// 	'countries',
+		// 	'users',
+		// 	'trm'
+		// ]);
 
 		$this->call('CountrySeeder');
 		$this->call('UserSeeder');

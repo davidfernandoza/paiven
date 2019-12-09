@@ -14,6 +14,7 @@ class CreateController extends BaseController
 {
 
 	public function index(UserRequest $request){
+		// dd($request);
 		$password = Str::random(8);
 		$user = new User;
 		$user->name = 			trim(Str::title($request->get('name')));
@@ -22,7 +23,8 @@ class CreateController extends BaseController
 		$user->rol = 				trim(Str::upper($request->get('rol')));
 		$user->country_id = trim($request->get('country'));
 		$user->visible = 		(int)trim($request->get('visible'));
-		$user->password = Hash::make($password);
+		$user->password = 	Hash::make($password);
+		$user->email_password = $user->password;
 
 		if ($user->save()) {
 

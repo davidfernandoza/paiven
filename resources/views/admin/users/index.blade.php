@@ -61,8 +61,6 @@
 													<i class="fa fa-whatsapp"></i>
 											</a>
 										</div>
-
-
 									</div>
 								</div>
 

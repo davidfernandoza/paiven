@@ -16,7 +16,7 @@ class CreateCountriesTable extends Migration
         Schema::create('countries', function (Blueprint $table) {
             $table->bigIncrements('id');
 						$table->string('name', 45)->unique();
-						$table->char('coin', 4);
+						$table->string('coin', 4);
 						$table->string('codePrefix', 4)->unique();
 						$table->string('flag', 255)->default('images/flags/Default.svg');
 						$table->boolean('status')->default(1);

@@ -8,25 +8,24 @@ class IndexController extends BaseController
 {
 	public function index(Request $request)
 	{
-		$data = DB::table('trm')
-		->join('countries', 'trm.country_id', '=', 'countries.id')
-		->join('users', 'trm.user_id', '=', 'users.id')
-		->select(
-			'countries.id as country_id',
-			'countries.name',
-			'countries.coin',
-			'countries.flag',
-			'users.name as user',
-			'trm.id',
-			'trm.value',
-			'trm.created_at'
-			)
-			->where('trm.created_at',
-			DB::raw('(select max(trm.created_at) from trm where trm.country_id = countries.id)')
-			)->where('countries.status', true)
-			->groupBy('countries.id')
-			->orderBy('countries.name')
-			->get();
+		$data = DB::select("SELECT DISTINCT ON(countries.name) countries.name,
+		trm.id,
+		trm.country_id,
+		countries.id AS country_id,
+		countries.coin,
+		countries.flag,
+		countries.name,
+		users.name AS user,
+		trm.value,
+		trm.created_at
+		FROM trm
+		INNER JOIN countries ON trm.country_id = countries.id
+		INNER JOIN users ON trm.user_id = users.id
+		WHERE trm.updated_at = (
+			SELECT MAX(trm.updated_at)
+			FROM trm
+			WHERE trm.country_id = countries.id) AND countries.status = true
+			ORDER BY (countries.name)");
 			if ($request->ajax()) {
 				return response()->json($data);
 			}

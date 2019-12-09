@@ -15,7 +15,7 @@ class CountrySeeder extends Seeder
 			DB::table('countries')->insert([
 				'name' => 'Colombia',
 				'coin' => 'COP',
-				'codePrefix' => '57',
+				'codePrefix' => 57,
 				'flag' => 'images/flags/Colombia.svg',
 				'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
 				'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
@@ -24,7 +24,7 @@ class CountrySeeder extends Seeder
 			DB::table('countries')->insert([
 				'name' => 'Peru',
 				'coin' => 'PEN',
-				'codePrefix' => '51',
+				'codePrefix' => 51,
 				'flag' => 'images/flags/Peru.svg',
 				'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
 				'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
@@ -33,7 +33,7 @@ class CountrySeeder extends Seeder
 			DB::table('countries')->insert([
 				'name' => 'Panama',
 				'coin' => 'USD',
-				'codePrefix' => '507',
+				'codePrefix' => 507,
 				'flag' => 'images/flags/Panama.svg',
 				'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
 				'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
@@ -42,7 +42,7 @@ class CountrySeeder extends Seeder
 			DB::table('countries')->insert([
 				'name' => 'Ecuador',
 				'coin' => 'USD',
-				'codePrefix' => '593',
+				'codePrefix' => 593,
 				'flag' => 'images/flags/Ecuador.svg',
 				'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
 				'updated_at' => \Carbon\Carbon::now()->toDateTimeString()

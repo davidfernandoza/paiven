@@ -17,9 +17,9 @@ class CreateUsersTable extends Migration
 			$table->bigIncrements('id');
 			$table->string('name', 45);
 			$table->string('email', 100)->unique();
-			$table->binary('password');
-			$table->binary('email_password');
-			$table->char('phone', 15);
+			$table->string('password');
+			$table->string('email_password');
+			$table->string('phone', 15);
 			$table->boolean('status')->default(1);
 			$table->boolean('visible')->default(0);
 			$table->enum('rol', ['ADMIN', 'BASIC'])->default('BASIC');

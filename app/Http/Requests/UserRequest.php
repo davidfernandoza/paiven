@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Rules\UniqueCaseRule;
 
 class UserRequest extends FormRequest
 {
@@ -30,7 +31,7 @@ class UserRequest extends FormRequest
 			$rules =[
 				'id' =>   	'required|numeric|max:32767|exists:users',
 				'name' =>  	'required|string|min:3|max:45',
-				'email' => 	'required|min:8|max:150|email|unique:users,email,'.$this->id,
+				'email' => 	['required', 'email','min:8', 'max:150', new UniqueCaseRule('email','users', $this->id)],
 				'phone' => 	'required|min:10000|max:999999999999|numeric',
 				'rol' => 		'required|string|in:ADMIN,BASIC',
 				'country' => 'required|numeric|exists:countries,id',
@@ -42,7 +43,7 @@ class UserRequest extends FormRequest
 		else{
 			$rules = [
 				'name' =>  	'required|string|min:3|max:45',
-				'email' => 	'required|min:8|max:150|email|unique:users,email',
+				'email' => 	['required', 'email','min:8', 'max:150', new UniqueCaseRule('email','users', null)],
 				'phone' => 	'required|min:10000|max:999999999999|numeric',
 				'rol' => 		'required|string|in:ADMIN,BASIC',
 				'country' => 'required|numeric|exists:countries,id',
@@ -63,7 +64,6 @@ class UserRequest extends FormRequest
 
 			'email.required' => '¡El email del usuario es requerido!',
 			'email.email' => '¡El email del usuario debe de ser valido!',
-			'email.unique' => '¡El email del usuario ya esta en uso!',
 			'email.min' => '¡El email del usuario debe de ser mas largo!',
 			'email.max' => '¡El email del usuario debe de ser mas corto!',
 

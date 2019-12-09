@@ -51,11 +51,12 @@
 @isset($actionText)
 @slot('subcopy')
 @lang(
-    "If you’re having trouble clicking the \":actionText\" button, copy and paste the URL below\n".
-    'into your web browser: [:actionURL](:actionURL)',
+    "Si tiene problemas para hacer clic en el botón \":actionText\", copie y pegue la URL debajo de\n". 'En su navegador web: [:actionURL](:actionURL)'."\n\n\n".'Casa de software [:actionText2](:actionURL2)',
     [
         'actionText' => $actionText,
         'actionURL' => $actionUrl,
+				'actionText2' => 'VISIONWARE.SAS',
+        'actionURL2' => 'https://www.visionware.com.co/',
     ]
 )
 @endslot

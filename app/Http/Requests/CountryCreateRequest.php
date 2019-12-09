@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Requests;
-
+use App\Rules\UniqueCaseRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CountryCreateRequest extends FormRequest
@@ -12,13 +12,12 @@ class CountryCreateRequest extends FormRequest
 		return true;
 	}
 
-
 	public function rules()
 	{
 		return [
-			'name' => 'required|string|min:3|max:45|unique:countries,name',
+			'name' => ['required', 'string','min:3', 'max:45', new UniqueCaseRule('name','countries', null)],
 			'coin' => 'required|string|min:2|max:4',
-			'codePrefix' => 'required|numeric|min:1|max:999|unique:countries,codePrefix,'.$this->id,
+			'codePrefix' => 'required|numeric|min:1|max:999|unique:countries,codePrefix',
 			'value' => 'required|numeric'
 		];
 	}
@@ -26,7 +25,6 @@ class CountryCreateRequest extends FormRequest
 	public function messages()
 	{
 		return [
-			'name.unique' => '¡El nombre del pais ya se esta usando!',
 			'name.required' => '¡El nombre del pais es requerido!',
 			'name.min' => '¡El nombre del pais debe de ser mas largo!',
 			'name.max' => '¡El nombre del pais debe de ser mas corto!',

@@ -18,7 +18,6 @@ class UpdateController extends BaseController
 			if ($request->pais['old'][$key] != $value) {
 				$trm = Trm::findOrFail($key);
 				$trm->user_id = Auth::user()->id;
-				// dd($value);
 				$trm->value = $value;
 				if (!$trm->update()) {
 					$status = false;

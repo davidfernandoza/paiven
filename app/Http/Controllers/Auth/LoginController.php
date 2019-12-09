@@ -33,7 +33,7 @@ class LoginController extends Controller
 	// Valida si el usuario activo.
 	protected function credentials(Request $request)
 	{
-		$request['status'] = 1;
+		$request['status'] = true;
 		return $request->only($this->username(), 'password', 'status');
 	}
 

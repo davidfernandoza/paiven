@@ -4,6 +4,27 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-coming-soon/blob/master/LICENSE)
  */
 
+ body {
+   margin: 0;
+ }
+ #loading-screen {
+   background-color: rgba(25,25,25,0.7);
+   height: 100%;
+   width: 100%;
+   position: fixed;
+   z-index: 9999;
+   margin-top: 0;
+   top: 0;
+   text-align: center;
+ }
+ #loading-screen img {
+   width: 100px;
+   height: 100px;
+   position: relative;
+   margin-top: -50px;
+   margin-left: -50px;
+   top: 50%;
+ }
 
 h1, h2, a{
 	font-family: 'Montserrat', sans-serif!important;
@@ -115,9 +136,6 @@ video {
 	background: -ms-linear-gradient(-45deg, rgba(73,155,234,1) 0%, rgba(137,181,224,1) 0%, rgba(32,124,229,1) 26%, rgba(123,169,217,1) 26%, rgba(123,169,217,1) 43%, rgba(23,129,235,1) 43%, rgba(23,129,235,1) 60%, rgba(61,124,191,1) 60%, rgba(61,124,191,1) 79%, rgba(120,180,245,1) 79%, rgba(120,180,245,1) 100%);
 	background: linear-gradient(135deg, rgba(73,155,234,1) 0%, rgba(137,181,224,1) 0%, rgba(32,124,229,1) 26%, rgba(123,169,217,1) 26%, rgba(123,169,217,1) 43%, rgba(23,129,235,1) 43%, rgba(23,129,235,1) 60%, rgba(61,124,191,1) 60%, rgba(61,124,191,1) 79%, rgba(120,180,245,1) 79%, rgba(120,180,245,1) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#499bea', endColorstr='#78b4f5', GradientType=1 );
-	C
-
-
 }
 
 .masthead {

@@ -26,6 +26,11 @@
 
 <body>
 
+{{-- load --}}
+	<div id="loading-screen">
+		<img src="{{asset('images/spinning-circles.svg')}}" alt="load">
+	</div>
+
 	<div class="overlay"></div>
 	<video width="13" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
 		<source src="{{asset('mp4/bg.mp4')}}" type="video/mp4">
@@ -50,7 +55,7 @@
 							<div class="input-group input-group-newsletter">
 
 								{{-- Input --}}
-								<input 	type="text"
+								<input 	type="tel"
 												id="from"
 												step="any"
 												class="form-control"
@@ -93,12 +98,12 @@
 
 							<label>El destinatario recibe en Venezuela</label>
 							<div class="input-group input-group-newsletter">
-								<input 	type="text"
+								<input 	type="tel"
 												class="form-control bns"
 												title="Cantidad que recibe el destinatario"
 												aria-label="Cantidad..."
 												aria-describedby="basic-addon"
-												value="0,00"
+												value="0"
 												readonly
 												id="to">
 								<div class="input-group-append btd">

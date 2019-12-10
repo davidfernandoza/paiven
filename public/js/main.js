@@ -114,65 +114,100 @@ function main () {
 
 							// Habilitar campo:
 							$('#from').removeAttr('readonly')
+
+							// quitar screen de carga
+							$('#loading-screen').fadeOut()
 						}
 
-						// Evitar la escritura de letras
-						$('#from').keydown(event => {
+						//validar si es movil el navegador
+						if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
 
-							let key = event.keyCode
-							if((key < 48 || key > 57) && (key < 96 || key > 105) && (key < 8 || key > 8)){
-								return false
-							}
-							else {
+							//exprecio regular para buscar un numero
+							const findNum = /(\d+)/g;
 
-								// Capturar el valor escrito:
-								$('#from').keyup(data => {
-									getChangeTRM(data.currentTarget.value)})
+							// Evitar la escritura de letras en movil
+							$('#from').on('textInput', event => {
+								let key = event.originalEvent.data.charCodeAt(0);
+								if((key < 48 || key > 57) && (key < 8 || key > 8)){
+									$('#from').keyup(data => {
+										let value = data.currentTarget.value
+										let strValue = ""
+										value = value.match(findNum);
+										if (value) {
+											value.forEach((item, index)=> {
+												strValue += item
+											})
+											getChangeTRM(strValue)
+										}
+										else{
+											getChangeTRM("")
+										}
+									})
 								}
-
-							});
+								else{
+									$('#from').keyup(data => {
+										let value = data.currentTarget.value
+										getChangeTRM(value)
+									})
+								}
+							})
 						}
-
-						// Optener data en local Storage cuando se llama del select:
-						function getTrm(id) {
-							const localStorage = new LocalStorage()
-							localStorage.getData(id).then(getLocaCountry)
+						else {
+							$('#from').keydown(event => {
+								let key = event.keyCode
+								if((key < 48 || key > 57) && (key < 96 || key > 105) && (key < 8 || key > 8)){
+									return false
+								}
+								else{
+									$('#from').keyup(data => {
+										let value = data.currentTarget.value
+										getChangeTRM(value)
+									})
+								}
+							})
 						}
+					}
 
-						// Procesamiento del local storage
-						function getLocaCountry(country) {
-							let name = formatString.capitalize(country.name)
-							let value = $('#from').val()
+					// Optener data en local Storage cuando se llama del select:
+					function getTrm(id) {
+						const localStorage = new LocalStorage()
+						localStorage.getData(id).then(getLocaCountry)
+					}
+
+					// Procesamiento del local storage
+					function getLocaCountry(country) {
+						let name = formatString.capitalize(country.name)
+						let value = $('#from').val()
+
+						$('#textFrom').text(`Tu envías desde ${name}`)
+						$('#fromCountrySpan')
+						.text(country.coin)
+						.append(`<img
+							src="/images/flags/${name}.svg"
+							alt="bandera"
+							width="40"
+							class="flagS">`)
 
 							$('#textFrom').text(`Tu envías desde ${name}`)
-							$('#fromCountrySpan')
-							.text(country.coin)
-							.append(`<img
-								src="/images/flags/${name}.svg"
-								alt="bandera"
-								width="40"
-								class="flagS">`)
+							printRate(name, country.value)
 
-								$('#textFrom').text(`Tu envías desde ${name}`)
-								printRate(name, country.value)
-
-								if (value != '') {
-									getChangeTRM(value)
-								}
+							if (value != '') {
+								getChangeTRM(value)
 							}
+						}
 
-							// Cambio de valor en el DOM:
-							function getChangeTRM(value) {
-								let numberOrigin = format.originNumber(value)
-								let valueEnd = format.newNumber(Number(numberOrigin / trm).toFixed(0))
-								let numFrom = format.newNumber(numberOrigin)
-								$('#to').val(valueEnd)
-								$('#from').val(numFrom)
-							}
+						// Cambio de valor en el DOM:
+						function getChangeTRM(value) {
+							let numberOrigin = format.originNumber(value)
+							let valueEnd = format.newNumber(Number(numberOrigin / trm).toFixed(0))
+							let numFrom = format.newNumber(numberOrigin)
+							$('#to').val(valueEnd)
+							$('#from').val(numFrom)
+						}
 
-							// Impresion de la tasa
-							function printRate(name, rate) {
-								$('#rateDefault').remove()
-								$('#rate').append(`<p id="rateDefault">Tasa de cambio para <samp>${name}</samp> es de <strong>${rate}</strong></p>`)
-								trm = rate
-							}
+						// Impresion de la tasa
+						function printRate(name, rate) {
+							$('#rateDefault').remove()
+							$('#rate').append(`<p id="rateDefault">Tasa de cambio para <samp>${name}</samp> es de <strong>${rate}</strong></p>`)
+							trm = rate
+						}
